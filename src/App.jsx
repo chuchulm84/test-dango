@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Card from "./components/Card/Card";
 import Modal from "./components/Modal/Modal";
+import TableCount from "./components/tableCount/TableCount";
 import Data from "./dummy_data/products";
 
-function App() {
+const App = () => {
   const [showModal, setShowModal] = useState(false);
   const [updateTitle, setUpdateTitle] = useState({
     title: "",
@@ -16,12 +17,14 @@ function App() {
   const [range, setRange] = useState(18);
   const [dataProducts, setDataProducts] = useState(Data.products);
 
+  const [count, setCount] = useState([]);
+
   return (
-    <div className="bg-gray-100 ">
-      <header className="container p-4 cardfill ">
+    <div className="bg-gray-100  cardfill2 ">
+      <header className="container  cardfill ">
         {dataProducts.map((e) => (
           <div
-            key={e.id}
+            key={e.id + e.title}
             onClick={() =>
               setUpdateTitle({
                 title: e.title,
@@ -47,22 +50,28 @@ function App() {
               dataProducts={dataProducts}
               setDataProducts={setDataProducts}
               id={e.id}
+              count={count}
+              setCount={setCount}
             />
           </div>
         ))}
-        <Modal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          range={range}
-          setRange={setRange}
-          updateTitle={updateTitle}
-          setUpdateTitle={setUpdateTitle}
-          dataProducts={dataProducts}
-          setDataProducts={setDataProducts}
-        />
       </header>
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        range={range}
+        setRange={setRange}
+        updateTitle={updateTitle}
+        setUpdateTitle={setUpdateTitle}
+        dataProducts={dataProducts}
+        setDataProducts={setDataProducts}
+      />
+
+      {showModal
+        ? ""
+        : count.length > 0 && <TableCount count={count} setCount={setCount} />}
     </div>
   );
-}
+};
 
 export default App;

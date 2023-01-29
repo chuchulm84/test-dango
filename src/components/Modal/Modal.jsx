@@ -20,7 +20,7 @@ export default function Modal({
     setDataProducts((prev) => {
       const index = prev.findIndex((e) => e.id === id);
 
-      prev.splice(index, 1, updateTitle);
+      prev[index].title = value;
 
       return prev;
     });
@@ -30,7 +30,7 @@ export default function Modal({
     <>
       {showModal ? (
         <>
-          <div className=" flex overflow-x-hidden overflow-y-auto fixed right-1 top-px z-50 outline-none focus:outline-none">
+          <div className=" flex overflow-x-hidden overflow-y-auto fixed right-1 top-px z-50 outline-none focus:outline-none mt-3">
             <div className="relative w-auto my-1 mx-auto max-w-3xl">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
@@ -47,9 +47,10 @@ export default function Modal({
                 </div>
 
                 {/*body*/}
-                <div className="relative p-10 flex-auto">
+                <div className="relative p-6 flex-auto">
                   <div className="w-96">
                     <Input
+                      className=" p-2 "
                       size="lg"
                       placeholder="Title"
                       tipe="text"
@@ -59,7 +60,7 @@ export default function Modal({
                       }
                     />
 
-                    <div className="mt-10">
+                    <div className="mt-5">
                       <label>Title size</label>
                       <input
                         type="range"
@@ -71,7 +72,6 @@ export default function Modal({
                   </div>
                 </div>
                 {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b"></div>
               </div>
             </div>
           </div>

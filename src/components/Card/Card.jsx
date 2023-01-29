@@ -9,13 +9,34 @@ const Card = ({
   countInStock,
   setShowModal,
   range,
+  count,
+  setCount,
 }) => {
-  const [count, setCount] = useState(0);
   const [newName, setNewName] = useState(title);
+  const [count1, setCount1] = useState(0);
 
   const getInfo = () => {
     setNewName(title);
     setShowModal(true);
+  };
+
+  const update = (e) => {
+    const filterItem = count.find((fil) => fil.id === id);
+    if (filterItem) {
+      setCount((prev) => {
+        const index = prev.findIndex((e) => e.id === id);
+
+        prev[index].count = e.target.value;
+
+        return prev;
+      });
+    } else {
+      setCount([
+        ...count,
+        { id: id, item: title, count: e.target.value, price: price },
+      ]);
+    }
+    setCount1(e.target.value);
   };
 
   return (
@@ -41,8 +62,8 @@ const Card = ({
         ) : (
           <select
             placeholder={countInStock === 0 ? " Not available" : ""}
-            value={count}
-            onChange={(e) => setCount(e.target.value)}
+            value={count1}
+            onChange={(e) => update(e)}
             className="w-10 h-10 border bg-white"
           >
             {[...Array(countInStock).keys()].map((x) => (

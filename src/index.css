@@ -4,8 +4,14 @@
 
 .cardfill {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 2fr));
   grid-auto-rows: auto;
   grid-gap: 1rem;
-  padding: 5rem;
+  padding: 1rem;
+}
+
+.cardfill2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
 }
