@@ -30,12 +30,12 @@ const TableCount = ({ count, setCount }) => {
   };
 
   return (
-    <table className="border-spacing w-96 max-w-md max-h-16 bg-white shadow-xl m-5  right-1  relative">
+    <table className="border-spacing      ">
       <thead className="">
         <tr className="">
-          <th className="border border-slate-300">ITEM</th>
-          <th className="border border-slate-300">TOTAL</th>
-          <th className="border border-slate-300"></th>
+          <th className="border border-slate-300 p-2">ITEM</th>
+          <th className="border border-slate-300 p-3">TOTAL</th>
+          <th className="border border-slate-300 p-3">DELETE</th>
         </tr>
       </thead>
       {count.map((e) => {
@@ -46,7 +46,7 @@ const TableCount = ({ count, setCount }) => {
 
               <td className="flex justify-center mt-1">{e.count}</td>
 
-              <td className=" border border-slate-300">
+              <td className=" border border-slate-300 pl-6">
                 <button
                   className=" bg-red-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-2 py-1 rounded shadow hover:shadow-lg outline-none focus:outline-none  mb-1 ml-1 mt-1 ease-linear transition-all duration-150"
                   type="button"
@@ -59,10 +59,10 @@ const TableCount = ({ count, setCount }) => {
           </tbody>
         );
       })}
-      <div className="flex justify-between w-full ">
+      <div className="flex justify-between w-full relative border border-slate-300">
         <h3 className="p-3 font-bold ">TOTAL ITEMS</h3>
-        <p className="  p-3 self-end absolute bottom-0 right-7">
-          {formatNumber(total())}
+        <p className="  p-3 self-end absolute bottom-0 right-0 font-semibold">
+          {count.length > 0 && formatNumber(total())}
         </p>
       </div>
     </table>

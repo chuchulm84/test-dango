@@ -4,14 +4,60 @@
 
 .cardfill {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 2fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-auto-rows: auto;
   grid-gap: 1rem;
+}
+
+/* .cardfill2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(950px, 1fr));
+  grid-template-rows: 2fr 1fr;
+} */
+
+aside {
+  position: fixed;
+  width: auto;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 1000;
+  transform: translateX(-33rem);
+  transition: all 0.5s ease-in-out;
+}
+
+aside.open {
+  transform: translateX(0);
+}
+
+.open-sidebar {
+  border: none;
+  width: 5rem;
+  height: auto;
+  font-size: 4.5rem;
+  padding: 1rem;
+  background: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.open-sidebar:hover {
+  border: none;
+  color: rgb(146, 139, 139);
+}
+
+aside ul {
+  padding: 0;
+  list-style: none;
+}
+
+aside li {
+  display: flex;
+  justify-content: space-between;
   padding: 1rem;
 }
 
-.cardfill2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
+.close-sidebar {
+  font-size: 1.6rem;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
 }

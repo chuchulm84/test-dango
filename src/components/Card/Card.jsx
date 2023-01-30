@@ -11,6 +11,8 @@ const Card = ({
   range,
   count,
   setCount,
+  siderbarIsOpen,
+  setSidebarIsOpen,
 }) => {
   const [newName, setNewName] = useState(title);
   const [count1, setCount1] = useState(0);
@@ -37,6 +39,7 @@ const Card = ({
       ]);
     }
     setCount1(e.target.value);
+    setSidebarIsOpen(true);
   };
 
   return (
@@ -78,7 +81,10 @@ const Card = ({
         <p>{description}</p>
       </div>
       <div className="flex justify-center">
-        <button className="border p-3 mt-10  bg-orange-200 shadow-lg shadow-gray-300 w-44 rounded-md">
+        <button
+          className="border p-3 mt-10  bg-orange-200 shadow-lg shadow-gray-300 w-44 rounded-md"
+          onClick={() => setSidebarIsOpen(true)}
+        >
           Add to cart
         </button>
       </div>

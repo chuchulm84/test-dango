@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Aside from "./components/Aside/Aside";
 import Card from "./components/Card/Card";
 import Modal from "./components/Modal/Modal";
 import TableCount from "./components/tableCount/TableCount";
@@ -16,12 +17,22 @@ const App = () => {
   });
   const [range, setRange] = useState(18);
   const [dataProducts, setDataProducts] = useState(Data.products);
+  const [siderbarIsOpen, setSidebarIsOpen] = useState(false);
 
   const [count, setCount] = useState([]);
 
+  console.log("siderbarIsOpen", siderbarIsOpen);
+
   return (
-    <div className="bg-gray-100  cardfill2 ">
-      <header className="container  cardfill ">
+    <div className="bg-gray-100 cardfill2">
+      <Aside
+        siderbarIsOpen={siderbarIsOpen}
+        setSidebarIsOpen={setSidebarIsOpen}
+        count={count}
+        setCount={setCount}
+      />
+
+      <header className="container cardfill p-5">
         {dataProducts.map((e) => (
           <div
             key={e.id + e.title}
@@ -52,9 +63,17 @@ const App = () => {
               id={e.id}
               count={count}
               setCount={setCount}
+              setSidebarIsOpen={setSidebarIsOpen}
             />
           </div>
         ))}
+        {/* <div className="col-span-2 ">
+          {showModal
+            ? ""
+            : count.length > 0 && (
+                <TableCount count={count} setCount={setCount} />
+              )}
+        </div> */}
       </header>
       <Modal
         showModal={showModal}
@@ -66,10 +85,6 @@ const App = () => {
         dataProducts={dataProducts}
         setDataProducts={setDataProducts}
       />
-
-      {showModal
-        ? ""
-        : count.length > 0 && <TableCount count={count} setCount={setCount} />}
     </div>
   );
 };
