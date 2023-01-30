@@ -2,7 +2,6 @@ import { useState } from "react";
 import Aside from "./components/Aside/Aside";
 import Card from "./components/Card/Card";
 import Modal from "./components/Modal/Modal";
-import TableCount from "./components/tableCount/TableCount";
 import Data from "./dummy_data/products";
 
 const App = () => {
@@ -15,16 +14,14 @@ const App = () => {
     countInStock: "",
     description: "",
   });
-  const [range, setRange] = useState(18);
+  const [range, setRange] = useState(20);
   const [dataProducts, setDataProducts] = useState(Data.products);
   const [siderbarIsOpen, setSidebarIsOpen] = useState(false);
 
   const [count, setCount] = useState([]);
 
-  console.log("siderbarIsOpen", siderbarIsOpen);
-
   return (
-    <div className="bg-gray-100 cardfill2">
+    <div className="bg-gray-100flex flex-row-reverse">
       <Aside
         siderbarIsOpen={siderbarIsOpen}
         setSidebarIsOpen={setSidebarIsOpen}
@@ -32,7 +29,7 @@ const App = () => {
         setCount={setCount}
       />
 
-      <header className="container cardfill p-5">
+      <header className=" container cardfill p-5">
         {dataProducts.map((e) => (
           <div
             key={e.id + e.title}

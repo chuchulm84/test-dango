@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const Card = ({
   id,
@@ -90,7 +90,7 @@ const Card = ({
       </div>
 
       <div className="flex justify-center m-10">
-        <p className="underline">Learn More</p>
+        <p className="underline cursor-pointer">Learn More</p>
       </div>
     </div>
   );

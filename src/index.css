@@ -9,12 +9,6 @@
   grid-gap: 1rem;
 }
 
-/* .cardfill2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(950px, 1fr));
-  grid-template-rows: 2fr 1fr;
-} */
-
 aside {
   position: fixed;
   width: auto;
