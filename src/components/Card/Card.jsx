@@ -22,20 +22,28 @@ const Card = ({
     setShowModal(true);
   };
 
-  const update = (e) => {
+  const update = (e, value) => {
+    console.log("value", value);
+    console.log("e.target.value", e.target.value);
+
     const filterItem = count.find((fil) => fil.id === id);
     if (filterItem) {
       setCount((prev) => {
         const index = prev.findIndex((e) => e.id === id);
 
-        prev[index].count = e.target.value;
+        prev[index].count = e.target.value === "" ? value : e.target.value;
 
         return prev;
       });
     } else {
       setCount([
         ...count,
-        { id: id, item: title, count: e.target.value, price: price },
+        {
+          id: id,
+          item: title,
+          count: e.target.value === "" ? value : e.target.value,
+          price: price,
+        },
       ]);
     }
     setCount1(e.target.value);
@@ -66,7 +74,7 @@ const Card = ({
           <select
             placeholder={countInStock === 0 ? " Not available" : ""}
             value={count1}
-            onChange={(e) => update(e)}
+            onChange={(e) => update(e, 1)}
             className="w-10 h-10 border bg-white"
           >
             {[...Array(countInStock).keys()].map((x) => (
@@ -83,7 +91,7 @@ const Card = ({
       <div className="flex justify-center">
         <button
           className="border p-3 mt-10  bg-orange-200 shadow-lg shadow-gray-300 w-44 rounded-md"
-          onClick={() => setSidebarIsOpen(true)}
+          onClick={(e) => update(e, 1)}
         >
           Add to cart
         </button>
