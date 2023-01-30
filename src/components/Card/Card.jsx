@@ -90,8 +90,9 @@ const Card = ({
       </div>
       <div className="flex justify-center">
         <button
-          className="border p-3 mt-10  bg-orange-200 shadow-lg shadow-gray-300 w-44 rounded-md"
+          className="border p-3 mt-10  bg-orange-200 shadow-lg shadow-gray-300 w-44 rounded-md disabled:opacity-75"
           onClick={(e) => update(e, 1)}
+          disabled={countInStock === 0 ? true : false}
         >
           Add to cart
         </button>
