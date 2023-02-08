@@ -53,7 +53,12 @@ const Card = ({
   return (
     <div className="border-2  p-5 h-full bg-white shadow-xl  ">
       <div className="flex justify-center  ">
-        <img src={image} alt="" className="rounded-md" />
+        <img
+          src={image}
+          alt=""
+          className="rounded-md "
+          style={{ width: "100%" }}
+        />
       </div>
       <div
         className="flex justify-center mt-10 cursor-pointer hover:text-slate-600"

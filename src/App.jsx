@@ -64,13 +64,6 @@ const App = () => {
             />
           </div>
         ))}
-        {/* <div className="col-span-2 ">
-          {showModal
-            ? ""
-            : count.length > 0 && (
-                <TableCount count={count} setCount={setCount} />
-              )}
-        </div> */}
       </header>
       <Modal
         showModal={showModal}
