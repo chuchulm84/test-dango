@@ -51,7 +51,7 @@ const Card = ({
   };
 
   return (
-    <div className="border-2  p-5 h-full bg-white shadow-xl  ">
+    <div className="border  p-5 h-full bg-white shadow-xl  ">
       <div className="flex justify-center  ">
         <img
           src={image}
