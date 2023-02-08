@@ -43,9 +43,20 @@ const TableCount = ({ count, setCount }) => {
           return (
             <tbody className="border border-slate-300" key={e.id + e.item}>
               <tr>
-                <td className="border border-slate-300 p-1">{e.item}</td>
+                <td className="border border-slate-300 p-1">
+                  <div className="flex">
+                    <img
+                      src={e.image}
+                      alt=""
+                      className="rounded-md "
+                      style={{ width: "100%", maxWidth: "50px" }}
+                    />
 
-                <td className="flex justify-center mt-1">{e.count}</td>
+                    <small className="text-xs p-2">{e.item}</small>
+                  </div>
+                </td>
+
+                <td className="flex justify-center mt-2 ">{e.count}</td>
 
                 <td className=" border border-slate-300 pl-6">
                   <button

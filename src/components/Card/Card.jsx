@@ -43,6 +43,7 @@ const Card = ({
           item: title,
           count: e.target.value === "" ? value : e.target.value,
           price: price,
+          image: image,
         },
       ]);
     }
