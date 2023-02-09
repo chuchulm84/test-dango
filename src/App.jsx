@@ -21,7 +21,7 @@ const App = () => {
   const [count, setCount] = useState([]);
 
   return (
-    <div className="bg-gray-100 ">
+    <div className="">
       <Aside
         siderbarIsOpen={siderbarIsOpen}
         setSidebarIsOpen={setSidebarIsOpen}
@@ -29,14 +29,14 @@ const App = () => {
         setCount={setCount}
       />
 
-      <div className="flex flex-row-reverse  pt-5 ">
-        <div className="flex pl-5 pr-5">
-          <i
-            className="fa-solid fa-cart-shopping flex justify text-2xl   cursor-pointer"
-            onClick={() => setSidebarIsOpen(!siderbarIsOpen)}
-          />
+      <div className="flex flex-wrap  p-5">
+        <div
+          className="flex relative h-7 cursor-pointer"
+          onClick={() => setSidebarIsOpen(!siderbarIsOpen)}
+        >
+          <i className="fa-solid fa-cart-shopping flex justify text-2xl cursor-pointer " />
           {count.length > 0 ? (
-            <small className="flex justify-center h-5 w-5 rounded-xl bg-red-600 text-white ml-1 ">
+            <small className="flex justify-center h-4 w-4 rounded-xl bg-red-600 text-white font-bold absolute top-0 left-2 right-0 ">
               {count.length}
             </small>
           ) : (
